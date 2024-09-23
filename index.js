@@ -2,8 +2,7 @@
 const http = require('http')
 const fs = require('fs')
 
-const port = 4000
-const hostName = "localhost"
+const port = process.env.PORT
 
 // Read Files
 const home = fs.readFileSync('./home.html','utf-8');
@@ -23,6 +22,6 @@ const server = http.createServer((req,res)=>{
     }
 });
 // Listen to the port
-server.listen(port,hostName,"Localhost",()=>{
+server.listen(port,()=>{
     console.log(`Server is Listening on http://${hostName}:${port}`)
 })
